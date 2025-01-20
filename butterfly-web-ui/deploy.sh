@@ -17,9 +17,9 @@ AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 AWS_REGION=us-west-2
 
 # Create ECR repository if it doesn't exist
-if ! aws ecr describe-repositories --repository-names butterfly-web-ui &>/dev/null; then
+if ! aws ecr describe-repositories --repository-names butterfly-web-ui --region ${AWS_REGION}  &>/dev/null; then
     echo "Creating ECR repository..."
-    aws ecr create-repository --repository-name butterfly-web-ui
+    aws ecr create-repository --repository-name butterfly-web-ui --region ${AWS_REGION}
 fi
 
 # Get ECR login token
