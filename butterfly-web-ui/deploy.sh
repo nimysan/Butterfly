@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable debug output
+set -x
+
 # Exit on error
 set -e
 
@@ -12,6 +15,9 @@ fi
 # Get AWS account ID and region
 AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 AWS_REGION=$(aws configure get region)
+if [ -z "$AWS_REGION" ]; then
+    AWS_REGION="us-west-2"
+fi
 
 # Create ECR repository if it doesn't exist
 if ! aws ecr describe-repositories --repository-names butterfly-web-ui &>/dev/null; then
