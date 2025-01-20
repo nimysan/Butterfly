@@ -2,20 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer utilities {
+  .animate-bounce-slow {
+    animation: bounce 3s infinite;
+  }
+  .animate-bounce-delayed {
+    animation: bounce 3s infinite;
+    animation-delay: 1.5s;
+  }
+  .animate-fade-in {
+    animation: fadeIn 1.5s ease-out;
+  }
+  .animate-fade-in-delayed {
+    animation: fadeIn 1.5s ease-out;
+    animation-delay: 0.5s;
+  }
+  .animate-fade-in-delayed-more {
+    animation: fadeIn 1.5s ease-out;
+    animation-delay: 1s;
+  }
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+  .animate-spin-slow-reverse {
+    animation: spin 8s linear infinite reverse;
+  }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: "Arial", sans-serif;
 }
