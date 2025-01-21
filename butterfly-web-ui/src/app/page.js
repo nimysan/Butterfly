@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SnakeGame from "../components/SnakeGame";
 
 export default function Home() {
   return (
@@ -27,12 +28,17 @@ export default function Home() {
         <p className="text-2xl md:text-4xl mb-8 animate-fade-in-delayed text-center">
           Happy Chinese New Year
         </p>
-        <p className="text-xl md:text-2xl animate-fade-in-delayed-more text-center">
+        <p className="text-xl md:text-2xl animate-fade-in-delayed-more text-center mb-8">
           恭喜发财 万事如意
         </p>
 
+        {/* Snake Game */}
+        <div className="mb-8">
+          <SnakeGame />
+        </div>
+
         {/* Decorative elements */}
-        <div className="mt-12 flex gap-8">
+        <div className="flex gap-8">
           <div className="w-16 h-16 border-4 border-yellow-300 rounded-full animate-spin-slow"></div>
           <div className="w-16 h-16 border-4 border-yellow-300 rounded-full animate-spin-slow-reverse"></div>
         </div>
