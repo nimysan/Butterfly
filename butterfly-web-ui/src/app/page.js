@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SnakeGame from "../components/SnakeGame";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -28,13 +28,24 @@ export default function Home() {
         <p className="text-2xl md:text-4xl mb-8 animate-fade-in-delayed text-center">
           Happy Chinese New Year
         </p>
-        <p className="text-xl md:text-2xl animate-fade-in-delayed-more text-center mb-8">
+        <p className="text-xl md:text-2xl animate-fade-in-delayed-more text-center mb-12">
           恭喜发财 万事如意
         </p>
 
-        {/* Snake Game */}
-        <div className="mb-8">
-          <SnakeGame />
+        {/* Navigation */}
+        <div className="flex gap-8 mb-12">
+          <Link 
+            href="/snake" 
+            className="px-8 py-4 bg-yellow-300 text-red-600 rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition-all font-bold text-xl"
+          >
+            贪吃蛇游戏
+          </Link>
+          <Link 
+            href="/player" 
+            className="px-8 py-4 bg-yellow-300 text-red-600 rounded-lg hover:bg-yellow-400 transform hover:scale-105 transition-all font-bold text-xl"
+          >
+            流媒体播放器
+          </Link>
         </div>
 
         {/* Decorative elements */}
